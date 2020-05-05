@@ -40,3 +40,11 @@ test {
     // Use junit platform for unit tests
     useJUnitPlatform()
 }
+
+task showRepositories {
+    doLast {
+        repositories.each {
+            println "repository: ${it.name} ('${it.url}')"
+        }
+    }
+}
