@@ -1,0 +1,19 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.5.0
+    hooks:
+      - id: trailing-whitespace
+        files: \.(js|rb|md|py|sh|txt|yaml|yml|groovy)$
+      - id: check-merge-conflict
+        files: \.(js|rb|md|py|sh|txt|yaml|yml|groovy)$
+      - id: check-symlinks
+      - id: end-of-file-fixer
+        exclude: auth0
+  - repo: https://github.com/Yelp/detect-secrets.git
+    rev: v0.13.1
+    hooks:
+    -   id: detect-secrets
+        args:
+          - '--baseline'
+          - '.secrets.baseline'

@@ -1,0 +1,18 @@
+/.idea/
+/.venv/
+.gradle/
+*.iml
+hs_err*.log
+.DS_Store
+aeron*
+*.jar
+!/gradle/wrapper/gradle-wrapper.jar
+build/
+bin/
+out/
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
