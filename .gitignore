@@ -1,5 +1,5 @@
 /.idea/
-/.venv/
+/.direnv/
 .gradle/
 *.iml
 hs_err*.log
