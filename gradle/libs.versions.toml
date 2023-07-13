@@ -1,0 +1,10 @@
+[versions]
+apacheCommonsText = "1.10.0"
+junit = "5.9.3"
+
+[libraries]
+apache-commonsText = { module = "org.apache.commons:commons-text", version.ref = "apacheCommonsText" }
+
+[bundles]
+
+[plugins]

@@ -7,13 +7,17 @@
  */
 
 pluginManagement {
+    val pluginVersionFoojayResolverConvention: String by settings
     // Include 'plugins build' to define convention plugins.
+    plugins {
+        id("org.gradle.toolchains.foojay-resolver-convention") version pluginVersionFoojayResolverConvention
+    }
     includeBuild("build-logic")
 }
 
 plugins {
     // Apply the foojay-resolver plugin to allow automatic download of JDKs
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
+    id("org.gradle.toolchains.foojay-resolver-convention")
 }
 
 rootProject.name = "gradle-java-sample"

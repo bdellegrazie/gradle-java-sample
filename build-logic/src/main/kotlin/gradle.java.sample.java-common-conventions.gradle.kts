@@ -4,6 +4,8 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
+val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
 plugins {
     // Apply the java Plugin to add support for Java.
     java
@@ -17,16 +19,19 @@ repositories {
 dependencies {
     constraints {
         // Define dependency versions as constraints
-        implementation("org.apache.commons:commons-text:1.10.0")
+        versionCatalog.findLibrary("apache-commonsText").ifPresent() {
+          implementation(it)
+        }
     }
 }
 
 testing {
     suites {
         // Configure the built-in test suite
+        @Suppress("UNUSED_VARIABLE")
         val test by getting(JvmTestSuite::class) {
             // Use JUnit Jupiter test framework
-            useJUnitJupiter("5.9.2")
+            useJUnitJupiter(versionCatalog.findVersion("junit").get().toString())
         }
     }
 }
