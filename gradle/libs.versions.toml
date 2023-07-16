@@ -1,6 +1,12 @@
 [versions]
 apacheCommonsText = "1.10.0"
+checkstyle = "10.12.1"
+fbcontrib = "7.4.3"
+findsecbugs = "1.12.0"
+jacoco = "0.8.10"
 junit = "5.9.3"
+pmd = "6.55.0"
+spotbugs = "4.7.3"
 
 [libraries]
 apache-commonsText = { module = "org.apache.commons:commons-text", version.ref = "apacheCommonsText" }

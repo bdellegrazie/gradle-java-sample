@@ -9,6 +9,9 @@ val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("lib
 plugins {
     // Apply the java Plugin to add support for Java.
     java
+    id("gradle.java.sample.java-checkstyle-conventions")
+    id("gradle.java.sample.java-jacoco-conventions")
+    id("gradle.java.sample.java-pmd-conventions")
 }
 
 repositories {
