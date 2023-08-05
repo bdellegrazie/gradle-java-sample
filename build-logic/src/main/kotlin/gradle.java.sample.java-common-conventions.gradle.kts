@@ -26,7 +26,11 @@ dependencies {
           implementation(it)
         }
     }
+    // Test dependencies
+    testImplementation(versionCatalog.findLibrary("junit-jupiter").get())
+    testRuntimeOnly(versionCatalog.findLibrary("junit-jupiterPlatformLauncher").get())
 }
+
 
 testing {
     suites {
