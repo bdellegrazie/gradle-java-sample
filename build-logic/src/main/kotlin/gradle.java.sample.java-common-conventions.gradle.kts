@@ -13,6 +13,7 @@ plugins {
     id("gradle.java.sample.java-jacoco-conventions")
     id("gradle.java.sample.java-pmd-conventions")
     id("gradle.java.sample.java-spotbugs-conventions")
+    id("gradle.java.sample.java-dependency-check-conventions")
     id("gradle.java.sample.java-sonar-conventions")
 }
 
@@ -32,7 +33,6 @@ dependencies {
     testImplementation(versionCatalog.findLibrary("junit-jupiter").get())
     testRuntimeOnly(versionCatalog.findLibrary("junit-jupiterPlatformLauncher").get())
 }
-
 
 testing {
     suites {

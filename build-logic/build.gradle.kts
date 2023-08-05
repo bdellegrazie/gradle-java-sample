@@ -15,6 +15,8 @@ repositories {
 }
 
 dependencies {
+  implementation(libs.dependencyCheck.gradlePlugin)
+  implementation(libs.postgresql.jdbc)
   implementation(libs.sonar.gradlePlugin)
   implementation(libs.spotbugs.gradlePlugin)
 }

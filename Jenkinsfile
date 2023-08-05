@@ -24,22 +24,6 @@ pipeline {
         }
       }
     }
-    stage("Sonar") {
-      steps {
-        withSonarQubeEnv('default') {
-            sh script: '''
-            ./gradlew sonarqube
-            '''
-        }
-      }
-    }
-    stage("QualityGate") {
-      steps {
-        timeout(time: 1, unit: 'HOURS') {
-          waitForQualityGate abortPipeline: true
-        }
-      }
-    }
     stage("Security") {
       environment {
         DB_DC=credentials('dependency_check_db_user')
@@ -58,6 +42,22 @@ pipeline {
             totalThresholdAnalysisExploitable: true, 
             unstableNewCritical: 1, 
             unstableTotalCritical: 1
+        }
+      }
+    }
+    stage("Sonar") {
+      steps {
+        withSonarQubeEnv('default') {
+            sh script: '''
+            ./gradlew sonarqube
+            '''
+        }
+      }
+    }
+    stage("QualityGate") {
+      steps {
+        timeout(time: 1, unit: 'HOURS') {
+          waitForQualityGate abortPipeline: true
         }
       }
     }
