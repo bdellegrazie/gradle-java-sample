@@ -20,7 +20,7 @@ tasks.jacocoTestReport {
 }
 
 jacoco {
-    toolVersion = versionCatalog.findVersion("jacoco").get().toString()
+    setToolVersion(versionCatalog.findVersion("jacoco").get().toString())
 }
 
 tasks.jacocoTestReport {

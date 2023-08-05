@@ -15,5 +15,6 @@ repositories {
 }
 
 dependencies {
+  implementation(libs.sonar.gradlePlugin)
   implementation(libs.spotbugs.gradlePlugin)
 }

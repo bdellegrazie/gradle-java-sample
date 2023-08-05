@@ -8,13 +8,9 @@
 
 pluginManagement {
     val pluginVersionFoojayResolverConvention: String by settings
-    val pluginVersionSonarQube: String by settings
-    val pluginVersionSpotbugs: String by settings
     // Include 'plugins build' to define convention plugins.
     plugins {
         id("org.gradle.toolchains.foojay-resolver-convention") version pluginVersionFoojayResolverConvention
-        id("org.sonarqube") version pluginVersionSonarQube
-        id("com.github.spotbugs") version pluginVersionSpotbugs
     }
     includeBuild("build-logic")
 }

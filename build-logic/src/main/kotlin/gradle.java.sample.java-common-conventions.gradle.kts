@@ -13,6 +13,7 @@ plugins {
     id("gradle.java.sample.java-jacoco-conventions")
     id("gradle.java.sample.java-pmd-conventions")
     id("gradle.java.sample.java-spotbugs-conventions")
+    id("gradle.java.sample.java-sonar-conventions")
 }
 
 repositories {

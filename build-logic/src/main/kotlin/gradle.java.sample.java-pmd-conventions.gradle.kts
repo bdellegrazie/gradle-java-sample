@@ -5,15 +5,15 @@ plugins {
 }
 
 pmd {
-    isConsoleOutput = System.getenv("CI") == null
     incrementalAnalysis = System.getenv("CI") == null
     ruleSets = listOf("category/java/errorprone.xml", "category/java/bestpractices.xml")
     rulesMinimumPriority.set(5)
-    toolVersion = versionCatalog.findVersion("pmd").get().toString()
+    setConsoleOutput(System.getenv("CI") == null)
+    setIgnoreFailures(System.getenv("CI") != null)
+    setToolVersion(versionCatalog.findVersion("pmd").get().toString())
 }
 
 tasks.withType<Pmd>().configureEach {
-    ignoreFailures = System.getenv("CI") != null
 
     reports {
         xml.required.set(System.getenv("CI") != null)

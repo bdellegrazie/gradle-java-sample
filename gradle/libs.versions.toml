@@ -7,6 +7,7 @@ jacoco = "0.8.10"
 junit = "5.9.3"
 junitPlatform = "1.9.3"
 pmd = "6.55.0"
+sonarPlugin = "4.3.0.3225"
 spotbugs = "4.7.3"
 spotbugsPlugin = "5.1.1"
 
@@ -15,6 +16,7 @@ apache-commonsText = { module = "org.apache.commons:commons-text", version.ref =
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit"}
 junit-jupiterPlatformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform"}
 findsecbugs = { module = "com.h3xstream.findsecbugs:findsecbugs-plugin", version.ref = "findsecbugs" }
+sonar-gradlePlugin = { module = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin", version.ref = "sonarPlugin" }
 spotbugs = { module = "com.github.spotbugs:spotbugs", version.ref = "spotbugs"}
 spotbugs-gradlePlugin = { module = "com.github.spotbugs.snom:spotbugs-gradle-plugin", version.ref = "spotbugsPlugin"}
 

@@ -5,11 +5,12 @@ plugins {
 }
 
 checkstyle {
-    toolVersion = versionCatalog.findVersion("checkstyle").get().toString()
+    setIgnoreFailures(System.getenv("CI") != null)
+    setShowViolations(System.getenv("CI") == null)
+    setToolVersion(versionCatalog.findVersion("checkstyle").get().toString())
 }
 
 tasks.withType<Checkstyle>().configureEach {
-    ignoreFailures = System.getenv("CI") != null
     reports {
         xml.required.set(System.getenv("CI") != null)
         html.required.set(System.getenv("CI") == null)
