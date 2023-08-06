@@ -75,6 +75,10 @@ pipeline {
     }
     stage("DependencyTrack") {
       environment {
+        PROJECT_UUID = """${sh(
+          returnStdout: true,
+          script: 'cat ${WORKSPACE}/.project.uuid'
+          )}""".trim()
         GIT_COMMIT_SHORT = "${env.GIT_COMMIT.take(7)}"
       }
       steps {
@@ -86,9 +90,9 @@ pipeline {
         always {
           dependencyTrackPublisher artifact: 'app/build/reports/bom.xml', 
             autoCreateProjects: true,
-            projectId: '70c7c4ab-e919-4a98-8696-8d57dab876aa',
+            projectId: "${env.PROJECT_UUID}",
             projectName: 'gradle-java-sample', 
-            projectVersion: '${GIT_COMMIT_SHORT}',
+            projectVersion: "${env.GIT_COMMIT_SHORT}",
             synchronous: true
         }
       }
