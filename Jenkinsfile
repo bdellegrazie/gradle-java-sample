@@ -68,7 +68,7 @@ pipeline {
       steps {
         withSonarQubeEnv('default') {
             sh script: '''
-            ./gradlew sonar ${CHANGE_ID:+-Psonar.newCode.referenceBranch=${CHANGE_TARGET}}
+            ./gradlew sonar
             '''
         }
       }
@@ -83,7 +83,7 @@ pipeline {
       }
       steps {
         sh script: '''
-          ./gradlew cycloneDxBom
+          ./gradlew :app:cycloneDxBom
         '''
       }
       post {
