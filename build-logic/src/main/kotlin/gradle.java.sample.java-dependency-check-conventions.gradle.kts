@@ -11,6 +11,9 @@ plugins {
 dependencyCheck {
     formats = listOf(ReportGenerator.Format.HTML.toString(), ReportGenerator.Format.JSON.toString(), ReportGenerator.Format.JENKINS.toString())
     suppressionFile = file("$rootDir/config/dependency-check/suppressions.xml").toString()
+    // Compile / Runtime classpath only.
+    scanConfigurations = listOf("annotationProcessor", "compileClasspath", "runtimeClasspath")
+    //skipConfigurations = listOf("checkstyle", "pmd", "pmdAux", "spotbugs")
     if (hasProperty("dependencyCheckProps")) {
         val prop = Properties().apply() {
             load(FileInputStream(File(property("dependencyCheckProps") as String)))
