@@ -4,6 +4,22 @@ pipeline {
     ansiColor('xterm')
   }
   stages {
+    stage("Checkout") {
+      steps {
+        checkout scm
+      }
+    }
+    stage("Metadata") {
+      environment {
+        GIT_COMMIT_SHORT = "${env.GIT_COMMIT.take(7)}"
+      }
+      steps {
+        //buildName "#${BUILD_NUMBER} (${GIT_COMMIT_SHORT})"
+        discoverGitReferenceBuild()
+        mineRepository()
+        gitDiffStat()
+      }
+    }
     stage("Build") {
       steps {
         sh script: '''
@@ -19,18 +35,21 @@ pipeline {
             tools: [ 
               checkStyle(pattern: '**/build/reports/checkstyle/**/*.xml', reportEncoding: 'UTF-8'),
               pmdParser(pattern: '**/build/reports/pmd/*.xml', reportEncoding: 'UTF-8'),
-              spotBugs(pattern: '**/build/spotbugs/*.xml', reportEncoding: 'UTF-8', useRankAsPriority: true)
+              spotBugs(pattern: '**/build/reports/spotbugs/*.xml', reportEncoding: 'UTF-8', useRankAsPriority: true),
+              taskScanner(highTags:'FIXME', normalTags:'TODO', includePattern: '**/*.java', excludePattern: '**/build/**/*'),
             ]
         }
       }
     }
-    stage("Security") {
+    stage("DependencyCheck") {
       environment {
         DB_DC=credentials('dependency_check_db_user')
       }
       steps {
         configFileProvider([configFile(fileId: 'dependency-check-props', replaceTokens: true, targetLocation: 'db.properties', variable: 'DB_DC_FILE')]) {
-          dependencyCheck additionalArguments: "--propertyfile '${env.DB_DC_FILE}' --noupdate --scan .", odcInstallation: 'v8'
+          sh script: '''
+            ./gradlew -PdependencyCheckProps=${DB_DC_FILE} dependencyCheckAnalyze
+          '''
         }
       }
       post {
@@ -49,15 +68,28 @@ pipeline {
       steps {
         withSonarQubeEnv('default') {
             sh script: '''
-            ./gradlew sonarqube
+            ./gradlew sonar ${CHANGE_ID:+-Psonar.newCode.referenceBranch=${CHANGE_TARGET}}
             '''
         }
       }
     }
-    stage("QualityGate") {
+    stage("DependencyTrack") {
+      environment {
+        GIT_COMMIT_SHORT = "${env.GIT_COMMIT.take(7)}"
+      }
       steps {
-        timeout(time: 1, unit: 'HOURS') {
-          waitForQualityGate abortPipeline: true
+        sh script: '''
+          ./gradlew cycloneDxBom
+        '''
+      }
+      post {
+        always {
+          dependencyTrackPublisher artifact: 'app/build/reports/bom.xml', 
+            autoCreateProjects: true,
+            projectId: '70c7c4ab-e919-4a98-8696-8d57dab876aa',
+            projectName: 'gradle-java-sample', 
+            projectVersion: '${GIT_COMMIT_SHORT}',
+            synchronous: true
         }
       }
     }
