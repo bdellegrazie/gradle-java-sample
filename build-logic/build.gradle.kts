@@ -15,8 +15,9 @@ repositories {
 }
 
 dependencies {
-  implementation(libs.cycloneDx.gradlePlugin)
+  implementation(libs.cyclonedx.gradlePlugin)
   implementation(libs.dependencyCheck.gradlePlugin)
+  implementation(libs.dependencyTrackCompanion.gradlePlugin)
   implementation(libs.postgresql.jdbc)
   implementation(libs.sonar.gradlePlugin)
   implementation(libs.spotbugs.gradlePlugin)

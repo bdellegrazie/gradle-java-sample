@@ -10,4 +10,7 @@ plugins {
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+
+    id("gradle.java.sample.java-cyclonedx-library-conventions")
+    id("gradle.java.sample.java-dependency-track-conventions")
 }

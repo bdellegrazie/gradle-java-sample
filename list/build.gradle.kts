@@ -4,6 +4,25 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
+import com.liftric.dtcp.tasks.GenerateVexTask
+import com.liftric.dtcp.tasks.RiskScoreTask
+import com.liftric.dtcp.tasks.UploadVexTask
+
 plugins {
     id("gradle.java.sample.java-library-conventions")
+}
+
+tasks {
+    named<GenerateVexTask>("generateVex") {
+        enabled = false
+    }
+
+    named<UploadVexTask>("uploadVex") {
+        enabled = false
+    }
+
+    named<RiskScoreTask>("riskScore") {
+        enabled = false
+    }
+
 }

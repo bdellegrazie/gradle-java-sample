@@ -1,8 +1,9 @@
 [versions]
 apacheCommonsText = "1.10.0"
 checkstyle = "10.12.1"
-cycloneDxPlugin = "1.7.4"
+cyclonedxPlugin = "1.7.4"
 dependencyCheckPlugin = "8.3.1"
+dependencyTrackCompanionPlugin = "1.1.0"
 fbcontrib = "7.4.3"
 findsecbugs = "1.12.0"
 jacoco = "0.8.10"
@@ -16,8 +17,9 @@ spotbugsPlugin = "5.1.1"
 
 [libraries]
 apache-commonsText = { module = "org.apache.commons:commons-text", version.ref = "apacheCommonsText" }
-cycloneDx-gradlePlugin = { module = "org.cyclonedx:cyclonedx-gradle-plugin", version.ref = "cycloneDxPlugin" }
+cyclonedx-gradlePlugin = { module = "org.cyclonedx:cyclonedx-gradle-plugin", version.ref = "cyclonedxPlugin" }
 dependencyCheck-gradlePlugin = { module = "org.owasp:dependency-check-gradle", version.ref = "dependencyCheckPlugin" }
+dependencyTrackCompanion-gradlePlugin = { module = "com.liftric:dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }
 findsecbugs = { module = "com.h3xstream.findsecbugs:findsecbugs-plugin", version.ref = "findsecbugs" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit"}
 junit-jupiterPlatformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform"}
@@ -29,3 +31,4 @@ spotbugs-gradlePlugin = { module = "com.github.spotbugs.snom:spotbugs-gradle-plu
 [bundles]
 
 [plugins]
+dependencyTrackCompanion = { id = "com.liftric.dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }

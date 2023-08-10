@@ -12,4 +12,5 @@ plugins {
     application
 
     id("gradle.java.sample.java-cyclonedx-application-conventions")
+    id("gradle.java.sample.java-dependency-track-conventions")
 }
