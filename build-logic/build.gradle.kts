@@ -15,9 +15,11 @@ repositories {
 }
 
 dependencies {
+  implementation(libs.benManesVersions.gradlePlugin)
   implementation(libs.cyclonedx.gradlePlugin)
   implementation(libs.dependencyCheck.gradlePlugin)
   implementation(libs.dependencyTrackCompanion.gradlePlugin)
+  implementation(libs.licenseCheck.gradlePlugin)
   implementation(libs.postgresql.jdbc)
   implementation(libs.sonar.gradlePlugin)
   implementation(libs.spotbugs.gradlePlugin)

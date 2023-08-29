@@ -1,28 +1,32 @@
 [versions]
 apacheCommonsText = "1.10.0"
+benManesVersionsPlugin = "0.47.0"
 checkstyle = "10.12.1"
 cyclonedxPlugin = "1.7.4"
-dependencyCheckPlugin = "8.3.1"
+dependencyCheckPlugin = "8.4.0"
 dependencyTrackCompanionPlugin = "1.1.0"
 fbcontrib = "7.4.3"
 findsecbugs = "1.12.0"
 jacoco = "0.8.10"
 junit = "5.9.3"
 junitPlatform = "1.9.3"
+licenseCheckPlugin = "2.5"
 pmd = "6.55.0"
 postgresql = "42.6.0"
 sonarPlugin = "4.3.0.3225"
 spotbugs = "4.7.3"
-spotbugsPlugin = "5.1.1"
+spotbugsPlugin = "5.1.3"
 
 [libraries]
 apache-commonsText = { module = "org.apache.commons:commons-text", version.ref = "apacheCommonsText" }
+benManesVersions-gradlePlugin = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "benManesVersionsPlugin"}
 cyclonedx-gradlePlugin = { module = "org.cyclonedx:cyclonedx-gradle-plugin", version.ref = "cyclonedxPlugin" }
 dependencyCheck-gradlePlugin = { module = "org.owasp:dependency-check-gradle", version.ref = "dependencyCheckPlugin" }
 dependencyTrackCompanion-gradlePlugin = { module = "com.liftric:dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }
 findsecbugs = { module = "com.h3xstream.findsecbugs:findsecbugs-plugin", version.ref = "findsecbugs" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit"}
 junit-jupiterPlatformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform"}
+licenseCheck-gradlePlugin = { module = "com.github.jk1:gradle-license-report", version.ref = "licenseCheckPlugin" }
 postgresql-jdbc = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
 sonar-gradlePlugin = { module = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin", version.ref = "sonarPlugin" }
 spotbugs = { module = "com.github.spotbugs:spotbugs", version.ref = "spotbugs"}
@@ -31,4 +35,10 @@ spotbugs-gradlePlugin = { module = "com.github.spotbugs.snom:spotbugs-gradle-plu
 [bundles]
 
 [plugins]
+cyclonedx = { id = "org.cyclonedx.bom", version.ref = "cyclonedxPlugin" }
+dependencyCheck = { id = "org.owasp.dependencycheck", version.ref = "dependencyCheckPlugin" }
 dependencyTrackCompanion = { id = "com.liftric.dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }
+licenseCheck = { id = "com.github.jk1.dependency-license-report", version.ref = "licenseCheckPlugin" }
+sonar = { id = "org.sonarqube", version.ref = "sonarPlugin" }
+spotbugs = { id = "com.github.spotbugs", version.ref = "spotbugsPlugin" }
+benManesVersions = { id = "com.github.ben-manes.versions", version.ref = "benManesVersionsPlugin" }
