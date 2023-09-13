@@ -9,7 +9,12 @@ plugins {
 }
 
 dependencyCheck {
-    formats = listOf(ReportGenerator.Format.HTML.toString(), ReportGenerator.Format.JSON.toString(), ReportGenerator.Format.JENKINS.toString())
+    formats = listOf(
+      ReportGenerator.Format.HTML.toString(),
+      ReportGenerator.Format.JSON.toString(),
+      ReportGenerator.Format.JENKINS.toString(),
+      ReportGenerator.Format.XML.toString(),
+    )
     suppressionFile = file("$rootDir/config/dependency-check/suppressions.xml").toString()
     // Compile / Runtime classpath only.
     scanConfigurations = listOf("annotationProcessor", "compileClasspath", "runtimeClasspath")
