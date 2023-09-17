@@ -13,7 +13,7 @@ junitPlatform = "1.10.0"
 licenseCheckPlugin = "2.5"
 pmd = "6.55.0"
 postgresql = "42.6.0"
-sonarPlugin = "4.3.0.3225"
+sonarPlugin = "4.3.1.3277"
 spotbugs = "4.7.3"
 spotbugsPlugin = "5.1.3"
 
