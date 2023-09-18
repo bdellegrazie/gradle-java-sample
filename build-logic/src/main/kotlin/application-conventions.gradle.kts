@@ -6,11 +6,11 @@
 
 plugins {
     // Apply the common convention plugin for shared build configuration between library and application projects.
-    id("gradle.java.sample.java-common-conventions")
+    id("common-conventions")
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
 
-    id("gradle.java.sample.java-cyclonedx-application-conventions")
-    id("gradle.java.sample.java-dependency-track-conventions")
+    id("cyclonedx-application-conventions")
+    id("dependency-track-conventions")
 }

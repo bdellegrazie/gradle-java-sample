@@ -6,11 +6,11 @@
 
 plugins {
     // Apply the common convention plugin for shared build configuration between library and application projects.
-    id("gradle.java.sample.java-common-conventions")
+    id("common-conventions")
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
 
-    id("gradle.java.sample.java-cyclonedx-library-conventions")
-    id("gradle.java.sample.java-dependency-track-conventions")
+    id("cyclonedx-library-conventions")
+    id("dependency-track-conventions")
 }

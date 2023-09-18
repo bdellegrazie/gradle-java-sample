@@ -9,7 +9,7 @@ import com.liftric.dtcp.tasks.RiskScoreTask
 import com.liftric.dtcp.tasks.UploadVexTask
 
 plugins {
-    id("gradle.java.sample.java-library-conventions")
+    id("library-conventions")
 }
 
 tasks {

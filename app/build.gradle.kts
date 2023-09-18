@@ -5,7 +5,7 @@
  */
 
 plugins {
-    id("gradle.java.sample.java-application-conventions")
+    id("application-conventions")
 }
 
 dependencies {

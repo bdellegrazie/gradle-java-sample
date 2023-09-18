@@ -12,5 +12,3 @@ dependencyResolutionManagement {
         }
     }
 }
-
-rootProject.name = "gradle-java-sample-build-logic"
