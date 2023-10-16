@@ -9,6 +9,7 @@ val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("lib
 plugins {
     // Apply the java Plugin to add support for Java.
     java
+    id("errorprone")
     id("checkstyle-conventions")
     id("jacoco-conventions")
     id("pmd-conventions")

@@ -5,6 +5,8 @@ checkstyle = "10.12.1"
 cyclonedxPlugin = "1.7.4"
 dependencyCheckPlugin = "8.4.0"
 dependencyTrackCompanionPlugin = "1.1.0"
+errorprone = "2.22.0"
+errorpronePlugin = "3.1.0"
 fbcontrib = "7.4.3"
 findsecbugs = "1.12.0"
 jacoco = "0.8.10"
@@ -23,6 +25,8 @@ benManesVersions-gradlePlugin = { module = "com.github.ben-manes:gradle-versions
 cyclonedx-gradlePlugin = { module = "org.cyclonedx:cyclonedx-gradle-plugin", version.ref = "cyclonedxPlugin" }
 dependencyCheck-gradlePlugin = { module = "org.owasp:dependency-check-gradle", version.ref = "dependencyCheckPlugin" }
 dependencyTrackCompanion-gradlePlugin = { module = "com.liftric:dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }
+errorprone = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }
+errorprone-gradlePlugin = { module = "net.ltgt.gradle:gradle-errorprone-plugin", version.ref = "errorpronePlugin" }
 findsecbugs = { module = "com.h3xstream.findsecbugs:findsecbugs-plugin", version.ref = "findsecbugs" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit"}
 junit-jupiterPlatformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform"}
@@ -38,6 +42,7 @@ spotbugs-gradlePlugin = { module = "com.github.spotbugs.snom:spotbugs-gradle-plu
 cyclonedx = { id = "org.cyclonedx.bom", version.ref = "cyclonedxPlugin" }
 dependencyCheck = { id = "org.owasp.dependencycheck", version.ref = "dependencyCheckPlugin" }
 dependencyTrackCompanion = { id = "com.liftric.dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }
+errorprone = { id = "net.ltgt.errorprone", version.ref = "errorpronePlugin" }
 licenseCheck = { id = "com.github.jk1.dependency-license-report", version.ref = "licenseCheckPlugin" }
 sonar = { id = "org.sonarqube", version.ref = "sonarPlugin" }
 spotbugs = { id = "com.github.spotbugs", version.ref = "spotbugsPlugin" }
