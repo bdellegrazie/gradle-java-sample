@@ -13,4 +13,5 @@ plugins {
 
     id("cyclonedx-application-conventions")
     id("dependency-track-conventions")
+    id("reproducible-archive")
 }
