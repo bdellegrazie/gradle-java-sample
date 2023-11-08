@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    implementation("org.apache.commons:commons-text")
+    implementation(libs.apache.commonsText)
     implementation(project(":utilities"))
 }
 
