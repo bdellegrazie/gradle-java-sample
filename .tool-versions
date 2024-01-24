@@ -1,2 +1,3 @@
-java temurin-17.0.7+7
+cosign 2.2.0
+java temurin-17.0.10+7
 python system
