@@ -15,6 +15,7 @@ plugins {
     id("pmd-conventions")
     id("spotbugs-conventions")
     id("dependency-check-conventions")
+    id("sonar-project-conventions")
 }
 
 repositories {
