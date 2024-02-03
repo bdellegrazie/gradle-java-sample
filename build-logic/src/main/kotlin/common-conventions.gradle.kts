@@ -34,7 +34,7 @@ dependencies {
     testImplementation(platform(versionCatalog.findLibrary("junit-bom").get()))
     testImplementation(versionCatalog.findLibrary("junit-jupiterApi").get())
     testRuntimeOnly(versionCatalog.findLibrary("junit-jupiterEngine").get())
-    testRuntimeOnly(versionCatalog.findLibrary("junit-jupiterPlatformLauncher").get())
+    testRuntimeOnly(versionCatalog.findLibrary("junit-platformLauncher").get())
 }
 
 tasks.named<Test>("test") {

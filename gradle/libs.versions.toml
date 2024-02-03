@@ -2,6 +2,8 @@
 apacheCommonsText = "1.11.0"
 benManesVersionsPlugin = "0.47.0"
 checkstyle = "10.12.1"
+cucumber = "7.15.0"
+cucumberCompanionPlugin = "1.0.1"
 cyclonedxPlugin = "1.7.4"
 dependencyCheckPlugin = "8.4.0"
 dependencyTrackCompanionPlugin = "1.1.0"
@@ -22,6 +24,10 @@ spotbugsPlugin = "6.0.7"
 [libraries]
 apache-commonsText = { module = "org.apache.commons:commons-text", version.ref = "apacheCommonsText" }
 benManesVersions-gradlePlugin = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "benManesVersionsPlugin"}
+cucumber-bom = { module = "io.cucumber:cucumber-bom", version.ref = "cucumber" }
+cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumber" }
+cucumber-junit = { module = "io.cucumber:cucumber-junit", version.ref = "cucumber" }
+cucumber-junitPlatformEngine = { module = "io.cucumber:cucumber-junit-platform-engine", version.ref = "cucumber" }
 cyclonedx-gradlePlugin = { module = "org.cyclonedx:cyclonedx-gradle-plugin", version.ref = "cyclonedxPlugin" }
 dependencyCheck-gradlePlugin = { module = "org.owasp:dependency-check-gradle", version.ref = "dependencyCheckPlugin" }
 dependencyTrackCompanion-gradlePlugin = { module = "com.liftric:dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }
@@ -32,7 +38,9 @@ junit-bom = {module = "org.junit:junit-bom", version.ref = "junit"}
 #junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit"}
 junit-jupiterApi = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit"}
 junit-jupiterEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit"}
-junit-jupiterPlatformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform"}
+junit-platformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform"}
+junit-platformSuiteApi = { module = "org.junit.platform:junit-platform-suite-api", version.ref = "junitPlatform"}
+junit-platformSuiteEngine = { module = "org.junit.platform:junit-platform-suite-engine", version.ref = "junitPlatform"}
 licenseCheck-gradlePlugin = { module = "com.github.jk1:gradle-license-report", version.ref = "licenseCheckPlugin" }
 postgresql-jdbc = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
 sonar-gradlePlugin = { module = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin", version.ref = "sonarPlugin" }
@@ -42,6 +50,7 @@ spotbugs-gradlePlugin = { module = "com.github.spotbugs.snom:spotbugs-gradle-plu
 [bundles]
 
 [plugins]
+cucumberCompanion = { id = "com.gradle.cucumber.companion", version.ref = "cucumberCompanionPlugin" }
 cyclonedx = { id = "org.cyclonedx.bom", version.ref = "cyclonedxPlugin" }
 dependencyCheck = { id = "org.owasp.dependencycheck", version.ref = "dependencyCheckPlugin" }
 dependencyTrackCompanion = { id = "com.liftric.dependency-track-companion-plugin", version.ref = "dependencyTrackCompanionPlugin" }

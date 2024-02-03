@@ -10,6 +10,7 @@ aeron*
 build/
 bin/
 out/
+/.vscode/
 
 # Ignore Gradle project-specific cache directory
 .gradle
