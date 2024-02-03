@@ -21,4 +21,4 @@ plugins {
 }
 
 rootProject.name = "gradle-java-sample"
-include("app", "list", "utilities")
+include("app", "cukes", "list", "utilities")

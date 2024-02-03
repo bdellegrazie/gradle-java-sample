@@ -11,20 +11,9 @@ plugins {
 dependencies {
     implementation(libs.apache.commonsText)
     implementation(project(":utilities"))
-
-    testImplementation(platform(libs.cucumber.bom))
-    testImplementation(libs.junit.platformSuiteApi)
-    testImplementation(libs.cucumber.java)
-    testImplementation(libs.cucumber.junit)
-    testImplementation(libs.cucumber.junitPlatformEngine)
-    testRuntimeOnly(libs.junit.platformSuiteEngine)
 }
 
 application {
     // Define the main class for the application.
     mainClass.set("gradle.java.sample.app.App")
-}
-
-tasks.withType<Test> {
-    systemProperty("cucumber.junit-platform.naming-strategy", "long")
 }
