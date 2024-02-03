@@ -24,5 +24,4 @@ tasks {
     named<RiskScoreTask>("riskScore") {
         enabled = false
     }
-
 }

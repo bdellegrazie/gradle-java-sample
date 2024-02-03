@@ -11,7 +11,7 @@ fbcontrib = "7.4.3"
 findsecbugs = "1.12.0"
 jacoco = "0.8.10"
 junit = "5.10.1"
-junitPlatform = "1.10.1s"
+junitPlatform = "1.10.1"
 licenseCheckPlugin = "2.5"
 pmd = "6.55.0"
 postgresql = "42.6.0"
@@ -28,7 +28,10 @@ dependencyTrackCompanion-gradlePlugin = { module = "com.liftric:dependency-track
 errorprone = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }
 errorprone-gradlePlugin = { module = "net.ltgt.gradle:gradle-errorprone-plugin", version.ref = "errorpronePlugin" }
 findsecbugs = { module = "com.h3xstream.findsecbugs:findsecbugs-plugin", version.ref = "findsecbugs" }
-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit"}
+junit-bom = {module = "org.junit:junit-bom", version.ref = "junit"}
+#junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit"}
+junit-jupiterApi = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit"}
+junit-jupiterEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit"}
 junit-jupiterPlatformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform"}
 licenseCheck-gradlePlugin = { module = "com.github.jk1:gradle-license-report", version.ref = "licenseCheckPlugin" }
 postgresql-jdbc = { module = "org.postgresql:postgresql", version.ref = "postgresql" }

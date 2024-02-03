@@ -31,8 +31,14 @@ dependencies {
         }
     }
     // Test dependencies
-    testImplementation(versionCatalog.findLibrary("junit-jupiter").get())
+    testImplementation(platform(versionCatalog.findLibrary("junit-bom").get()))
+    testImplementation(versionCatalog.findLibrary("junit-jupiterApi").get())
+    testRuntimeOnly(versionCatalog.findLibrary("junit-jupiterEngine").get())
     testRuntimeOnly(versionCatalog.findLibrary("junit-jupiterPlatformLauncher").get())
+}
+
+tasks.named<Test>("test") {
+    useJUnitPlatform()
 }
 
 testing {
