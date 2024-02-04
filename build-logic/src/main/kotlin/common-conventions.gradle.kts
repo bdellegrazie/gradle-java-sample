@@ -16,6 +16,7 @@ plugins {
     id("spotbugs-conventions")
     id("dependency-check-conventions")
     id("sonar-project-conventions")
+    id("unit-test-conventions")
 }
 
 repositories {
@@ -28,26 +29,6 @@ dependencies {
         // Define dependency versions as constraints
         versionCatalog.findLibrary("apache-commonsText").ifPresent() {
           implementation(it)
-        }
-    }
-    // Test dependencies
-    testImplementation(platform(versionCatalog.findLibrary("junit-bom").get()))
-    testImplementation(versionCatalog.findLibrary("junit-jupiterApi").get())
-    testRuntimeOnly(versionCatalog.findLibrary("junit-jupiterEngine").get())
-    testRuntimeOnly(versionCatalog.findLibrary("junit-platformLauncher").get())
-}
-
-tasks.named<Test>("test") {
-    useJUnitPlatform()
-}
-
-testing {
-    suites {
-        // Configure the built-in test suite
-        @Suppress("UNUSED_VARIABLE")
-        val test by getting(JvmTestSuite::class) {
-            // Use JUnit Jupiter test framework
-            useJUnitJupiter(versionCatalog.findVersion("junit").get().toString())
         }
     }
 }
