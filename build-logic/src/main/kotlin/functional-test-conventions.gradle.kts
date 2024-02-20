@@ -45,6 +45,7 @@ testing {
           testTask.configure {
             useJUnitPlatform()
             systemProperty("cucumber.junit-platform.naming-strategy", "long")
+            systemProperty("cucumber.publish.quiet", "true")
             testLogging {
               events("passed", "skipped", "failed")
             }
