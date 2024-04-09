@@ -8,7 +8,7 @@ plugins {
 }
 
 licenseReport {
-    allowedLicensesFile = file("${rootProject.projectDir}/config/license-check/allowed-licenses.json")
+    allowedLicensesFile = rootProject.layout.projectDirectory.file("config/license-check/allowed-licenses.json")
     renderers = arrayOf<ReportRenderer>(InventoryHtmlReportRenderer("report.html", "Backend"))
     filters = arrayOf<DependencyFilter>(LicenseBundleNormalizer())
 }

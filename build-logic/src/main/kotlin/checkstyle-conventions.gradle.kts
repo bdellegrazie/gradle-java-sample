@@ -7,13 +7,13 @@ plugins {
 checkstyle {
     setIgnoreFailures(System.getenv("CI") != null)
     setShowViolations(System.getenv("CI") == null)
-    setToolVersion(versionCatalog.findVersion("checkstyle").get().toString())
+    toolVersion = versionCatalog.findVersion("checkstyle").get().toString()
 }
 
 tasks.withType<Checkstyle>().configureEach {
     reports {
-        xml.required.set(System.getenv("CI") != null)
-        html.required.set(System.getenv("CI") == null)
-        sarif.required.set(System.getenv("CI") != null)
+        xml.required = System.getenv("CI") != null
+        html.required = System.getenv("CI") == null
+        sarif.required = System.getenv("CI") != null
     }
 }

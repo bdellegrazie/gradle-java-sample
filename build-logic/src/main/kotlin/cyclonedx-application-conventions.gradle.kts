@@ -5,10 +5,10 @@ plugins {
 }
 
 tasks.withType<CycloneDxTask>().configureEach {
-    setIncludeConfigs(listOf("runtimeClasspath"))
-    setSkipConfigs(listOf("compileClasspath", "testCompileClasspath"))
-    setProjectType("application")
+    includeConfigs = listOf("runtimeClasspath")
+    skipConfigs = listOf("compileClasspath", "testCompileClasspath")
+    projectType = "application"
 
-    setIncludeLicenseText(false)
-    setIncludeBomSerialNumber(false)
+    includeLicenseText = false
+    includeBomSerialNumber = false
 }

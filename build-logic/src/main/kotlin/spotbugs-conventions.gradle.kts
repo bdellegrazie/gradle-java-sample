@@ -7,10 +7,10 @@ plugins {
 }
 
 spotbugs {
-    ignoreFailures.set(System.getenv("CI") != null)
-    showProgress.set(System.getenv("CI") == null)
-    effort.set(com.github.spotbugs.snom.Effort.DEFAULT)
-    reportLevel.set(com.github.spotbugs.snom.Confidence.DEFAULT)
+    ignoreFailures = System.getenv("CI") != null
+    showProgress = System.getenv("CI") == null
+    effort = com.github.spotbugs.snom.Effort.DEFAULT
+    reportLevel = com.github.spotbugs.snom.Confidence.DEFAULT
 }
 
 dependencies {
@@ -19,16 +19,18 @@ dependencies {
 }
 
 tasks.withType<SpotBugsTask>().configureEach {
+    enabled = (findProperty("spotbugsEnabled") as String).toBoolean()
+
     reports.create("html") {
-        required.set(System.getenv("CI") == null)
+        required = System.getenv("CI") == null
     }
     reports.create("sarif") {
-        required.set(System.getenv("CI") != null)
+        required = System.getenv("CI") != null
     }
     reports.create("text") {
-        required.set(false)
+        required = false
     }
     reports.create("xml") {
-        required.set(System.getenv("CI") != null)
+        required = System.getenv("CI") != null
     }
 }

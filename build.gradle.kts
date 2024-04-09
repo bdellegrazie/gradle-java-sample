@@ -4,3 +4,6 @@ plugins {
     id("sonar-root-conventions")
     id("versions-conventions")
 }
+
+val pmdEnabled by extra("false")
+val spotbugsEnabled by extra("false")

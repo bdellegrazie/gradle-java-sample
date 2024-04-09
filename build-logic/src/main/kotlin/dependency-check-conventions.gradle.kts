@@ -15,7 +15,7 @@ dependencyCheck {
       ReportGenerator.Format.JENKINS.toString(),
       ReportGenerator.Format.XML.toString(),
     )
-    suppressionFile = file("$rootDir/config/dependency-check/suppressions.xml").toString()
+    suppressionFile = rootProject.layout.projectDirectory.file("config/dependency-check/suppressions.xml").toString()
     // Compile / Runtime classpath only.
     scanConfigurations = listOf("annotationProcessor", "compileClasspath", "runtimeClasspath")
     //skipConfigurations = listOf("checkstyle", "pmd", "pmdAux", "spotbugs")

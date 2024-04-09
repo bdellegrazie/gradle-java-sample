@@ -25,8 +25,8 @@ jacoco {
 
 tasks.jacocoTestReport {
     reports {
-        csv.required.set(System.getenv("CI") != null)
-        html.required.set(System.getenv("CI") == null)
-        xml.required.set(System.getenv("CI") != null)
+        csv.required = System.getenv("CI") != null
+        html.required = System.getenv("CI") == null
+        xml.required = System.getenv("CI") != null
     }
 }

@@ -18,6 +18,6 @@ dependencies {
 }
 
 tasks.withType<JavaCompile>().configureEach {
-  options.errorprone.allErrorsAsWarnings.set(true)
-  options.errorprone.disableWarningsInGeneratedCode.set(true)
+  options.errorprone.allErrorsAsWarnings = true
+  options.errorprone.disableWarningsInGeneratedCode = true
 }
