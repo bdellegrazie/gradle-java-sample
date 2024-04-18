@@ -3,8 +3,9 @@ val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("lib
 plugins {
   java
   jacoco
+  `java-test-fixtures`
   `jvm-test-suite`
-  id("com.gradle.cucumber.companion")
+  //id("com.gradle.cucumber.companion")
 }
 
 // Configure default test target to support Cucumber Tests
@@ -16,29 +17,21 @@ testing {
 
       testType = TestSuiteType.FUNCTIONAL_TEST
 
-      sources { 
-        java { 
-          setSrcDirs(listOf("src/ft/java")) 
-        }
-        resources {
-          setSrcDirs(listOf("src/ft/resources"))
-        }
-      }
-
       dependencies {
         implementation(project())
+        implementation(testFixtures(project()))
         implementation(platform(versionCatalog.findLibrary("junit-bom").get()))
         implementation(versionCatalog.findLibrary("junit-jupiterApi").get())
-        runtimeOnly(versionCatalog.findLibrary("junit-jupiterEngine").get())
-        runtimeOnly(versionCatalog.findLibrary("junit-platformLauncher").get())
         implementation(versionCatalog.findLibrary("junit-platformSuiteApi").get())
         implementation(versionCatalog.findLibrary("cucumber-java").get())
         implementation(versionCatalog.findLibrary("cucumber-junit").get())
         implementation(versionCatalog.findLibrary("cucumber-junitPlatformEngine").get())
+        runtimeOnly(versionCatalog.findLibrary("junit-jupiterEngine").get())
+        runtimeOnly(versionCatalog.findLibrary("junit-platformLauncher").get())
         runtimeOnly(versionCatalog.findLibrary("junit-platformSuiteEngine").get())
       }
 
-      generateCucumberSuiteCompanion(project)
+      //generateCucumberSuiteCompanion(project)
 
       targets {
         all {
@@ -58,9 +51,9 @@ testing {
   }
 }
 
-cucumberCompanion {
-  enableForStandardTestTask.set(false)
-}
+//cucumberCompanion {
+  //enableForStandardTestTask.set(false)
+//}
 
 tasks.named("check") { 
   dependsOn(testing.suites.named("functionalTest"))
