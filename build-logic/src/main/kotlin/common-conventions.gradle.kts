@@ -11,7 +11,6 @@ plugins {
     java
     id("errorprone")
     id("checkstyle-conventions")
-    id("jacoco-conventions")
     id("pmd-conventions")
     id("spotbugs-conventions")
     id("dependency-check-conventions")

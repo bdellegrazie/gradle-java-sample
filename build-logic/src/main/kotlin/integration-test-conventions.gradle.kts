@@ -2,6 +2,7 @@ val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("lib
 
 plugins {
   java
+  `java-test-fixtures`
   `jvm-test-suite`
 }
 
@@ -14,24 +15,29 @@ testing {
 
       testType = TestSuiteType.INTEGRATION_TEST
 
-      sources { 
-        java { 
-            setSrcDirs(listOf("src/it/java")) 
-        }
-      }
-
       dependencies {
         implementation(project())
+        implementation(testFixtures(project()))
         implementation(platform(versionCatalog.findLibrary("junit-bom").get()))
         implementation(versionCatalog.findLibrary("junit-jupiterApi").get())
+        implementation(versionCatalog.findLibrary("junit-platformSuiteApi").get())
+        implementation(versionCatalog.findLibrary("cucumber-java").get())
+        implementation(versionCatalog.findLibrary("cucumber-junit").get())
+        implementation(versionCatalog.findLibrary("cucumber-junitPlatformEngine").get())
         runtimeOnly(versionCatalog.findLibrary("junit-jupiterEngine").get())
         runtimeOnly(versionCatalog.findLibrary("junit-platformLauncher").get())
+        runtimeOnly(versionCatalog.findLibrary("junit-platformSuiteEngine").get())
       }
 
       targets { 
         all {
           testTask.configure {
             useJUnitPlatform()
+            systemProperty("cucumber.junit-platform.naming-strategy", "long")
+            systemProperty("cucumber.publish.quiet", "true")
+            testLogging {
+              events("passed", "skipped", "failed")
+            }
             shouldRunAfter("test")
           }
         }

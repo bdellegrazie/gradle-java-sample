@@ -16,7 +16,6 @@ repositories {
 
 dependencies {
   implementation(libs.benManesVersions.gradlePlugin)
-  implementation(libs.cucumberCompanion.gradlePlugin)
   implementation(libs.cyclonedx.gradlePlugin)
   implementation(libs.dependencyCheck.gradlePlugin)
   implementation(libs.dependencyTrackCompanion.gradlePlugin)

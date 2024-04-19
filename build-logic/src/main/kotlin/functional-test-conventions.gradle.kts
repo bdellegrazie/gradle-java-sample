@@ -5,7 +5,6 @@ plugins {
   jacoco
   `java-test-fixtures`
   `jvm-test-suite`
-  //id("com.gradle.cucumber.companion")
 }
 
 // Configure default test target to support Cucumber Tests
@@ -51,10 +50,6 @@ testing {
   }
 }
 
-//cucumberCompanion {
-  //enableForStandardTestTask.set(false)
-//}
-
 tasks.named("check") { 
   dependsOn(testing.suites.named("functionalTest"))
 }
@@ -66,8 +61,8 @@ val jacocoFunctionalTestReport = tasks.register<JacocoReport>("jacocoFunctionalT
   sourceSets(sourceSets.main.get())
 
   reports {
-    csv.required.set(System.getenv("CI") != null)
-    html.required.set(System.getenv("CI") == null)
-    xml.required.set(System.getenv("CI") != null)
+    csv.required = System.getenv("CI") != null
+    html.required = System.getenv("CI") == null
+    xml.required = System.getenv("CI") != null
   }
 }

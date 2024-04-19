@@ -1,6 +1,7 @@
 plugins {
     id("library-conventions")
     id("functional-test-conventions")
+    id("integration-test-conventions")
 }
 
 dependencies {
